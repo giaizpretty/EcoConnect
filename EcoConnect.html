@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EcoConnect</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+    <script src="ecobot.js" defer></script>
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="images/EcoConnect Logo.png" alt="EcoConnect Logo">
+            <span>EcoConnect</span>
+        </div>
+
+        <ul class="nav-menu">
+            <li><a href="about.html">About</a></li>
+            <li><a href="tools.html">Eco Tools</a></li>
+            <li><a href="challenges.html">Challenges</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="videos/nature.mp4" type="video/mp4">
+        </video>
+
+        <div class="overlay"></div>
+
+
+        <div class="hero-content">
+
+            <h1>Small Actions.<br>Big Impact.</h1>
+
+            <p>
+                EcoConnect empowers people to protect the planet through
+                education, sustainable habits, and innovative digital tools.
+                Together, we can build a greener future.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="tools.html" class="primary-btn">
+                    Explore
+                </a>
+
+                <a href="about.html" class="secondary-btn">
+                    Learn More
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- 🌍 OUR IMPACT -->
+
+<section class="impact-section">
+
+    <div class="impact-heading">
+        <span>OUR IMPACT</span>
+        <h2>Together, We Make a Difference.</h2>
+        <p>
+            Every small action contributes to a healthier planet.
+            Here's what our EcoConnect community is working towards.
+        </p>
+    </div>
+
+    <div class="impact-grid">
+
+        <div class="impact-card">
+            <div class="impact-icon">🌳</div>
+            <h3 class="impact-number" data-target="1250">0</h3>
+            <p>Trees Supported</p>
+        </div>
+
+        <div class="impact-card">
+            <div class="impact-icon">♻️</div>
+            <h3 class="impact-number" data-target="5840">0</h3>
+            <p>Bottles Recycled</p>
+        </div>
+
+        <div class="impact-card">
+            <div class="impact-icon">💧</div>
+           <h3 class="impact-number" data-target="28750">0</h3>
+            <p>Litres of Water Saved</p>
+        </div>
+
+        <div class="impact-card">
+            <div class="impact-icon">🌱</div>
+            <h3 class="impact-number" data-target="890">0</h3>
+            <p>Eco Members</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- 🌱 ECOBOT PET -->
+
+    <img
+        src="images/ecobot.png.png"
+        alt="EcoBot"
+        class="eco-bot-button"
+        id="ecoBotButton"
+    >
+
+
+    <!-- 🌱 ECOBOT CHAT -->
+
+    <div class="eco-bot-window" id="ecoBotWindow">
+
+        <div class="eco-bot-header">
+
+            <div>
+                <strong>🌱 EcoBot</strong>
+                <span>Your Eco-Friendly Assistant</span>
+            </div>
+
+            <button id="ecoBotClose">×</button>
+
+        </div>
+
+
+        <div class="eco-bot-messages" id="ecoBotMessages">
+
+            <div class="bot-message">
+                Hiii! 👋🏽🌱 I'm EcoBot!
+                <br><br>
+                Ask me anything about the environment,
+                recycling, climate change or sustainability. 🌍
+            </div>
+
+
+            <!-- QUICK QUESTIONS -->
+
+            <div class="eco-quick-questions">
+
+                <button class="eco-question" data-question="What is recycling?">
+                    ♻️ Recycling
+                </button>
+
+                <button class="eco-question" data-question="What is climate change?">
+                    🌍 Climate Change
+                </button>
+
+                <button class="eco-question" data-question="How can I save water?">
+                    💧 Save Water
+                </button>
+
+                <button class="eco-question" data-question="What is sustainability?">
+                    🌱 Sustainability
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- INPUT AREA -->
+
+        <div class="eco-bot-input-area">
+
+            <input
+                type="text"
+                id="ecoBotInput"
+                placeholder="Ask EcoBot something..."
+            >
+
+            <button id="ecoBotSend">➤</button>
+
+        </div>
+
+    </div>
+
+<script>
+const impactNumbers = document.querySelectorAll(".impact-number");
+
+const impactObserver = new IntersectionObserver((entries, observer) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            const number = entry.target;
+            const target = Number(number.dataset.target);
+            let current = 0;
+
+            const duration = 1800;
+            const startTime = performance.now();
+
+            function countUp(time) {
+
+                const progress = Math.min(
+                    (time - startTime) / duration,
+                    1
+                );
+
+                current = Math.floor(progress * target);
+
+                number.textContent =
+                    current.toLocaleString();
+
+                if (progress < 1) {
+                    requestAnimationFrame(countUp);
+                }
+
+            }
+
+            requestAnimationFrame(countUp);
+
+            observer.unobserve(number);
+        }
+
+    });
+
+}, { threshold: 0.5 });
+
+impactNumbers.forEach(number => {
+    impactObserver.observe(number);
+});
+</script>
+</body>
+</html>
+```

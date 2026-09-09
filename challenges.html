@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eco Challenges | EcoConnect</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="challenges.js" defer></script>
+
+    <style>
+        /* =========================
+           CHALLENGES PAGE
+        ========================= */
+
+        body {
+            margin: 0;
+            background: #f4fbf6;
+            color: #173b29;
+        }
+
+        .back-button {
+            padding: 20px 6%;
+        }
+
+        .back-button a {
+            text-decoration: none;
+            color: #16834f;
+            font-weight: 600;
+        }
+
+        .challenges,
+        .dashboard,
+        .recycling,
+        .stats {
+            padding: 80px 7%;
+        }
+
+        .challenge-heading,
+        .dashboard-title,
+        .recycling-title,
+        .stats-title {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 45px;
+        }
+
+        .challenge-heading h5,
+        .dashboard-title h5,
+        .recycling-title h5 {
+            color: #10a968;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .challenge-heading h2,
+        .dashboard-title h2,
+        .recycling-title h2,
+        .stats-title h2 {
+            font-size: clamp(32px, 5vw, 55px);
+            margin: 10px 0;
+        }
+
+        .challenge-heading p,
+        .dashboard-title p,
+        .recycling-title p,
+        .stats-title p {
+            line-height: 1.7;
+            color: #60766a;
+        }
+
+        /* Challenge cards */
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .challenge-card {
+            background: white;
+            padding: 28px;
+            border-radius: 24px;
+            box-shadow: 0 10px 35px rgba(0, 80, 40, 0.08);
+            transition: 0.3s;
+            border: 1px solid #e2f2e8;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .challenge-card h3 {
+            font-size: 20px;
+        }
+
+        .challenge-card p {
+            color: #6b7d72;
+            line-height: 1.6;
+            min-height: 55px;
+        }
+
+        .challenge-card button,
+        .recycling-box button {
+            border: none;
+            background: #10a968;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .challenge-card button:hover,
+        .recycling-box button:hover {
+            transform: scale(1.05);
+            background: #087d4a;
+        }
+
+        .challenge-card.completed {
+            border: 2px solid #10a968;
+            background: #effbf4;
+        }
+
+        .challenge-card.completed button {
+            background: #6c757d;
+            cursor: default;
+        }
+
+        /* Dashboard */
+
+        .dashboard {
+            background: white;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .dashboard-card {
+            background: #f4fbf6;
+            padding: 25px;
+            text-align: center;
+            border-radius: 22px;
+        }
+
+        .dashboard-card h3 {
+            font-size: 16px;
+        }
+
+        .dashboard-card h1 {
+            font-size: 38px;
+            color: #10a968;
+            margin: 10px 0;
+        }
+
+        .progress-section {
+            max-width: 800px;
+            margin: 50px auto 0;
+            text-align: center;
+        }
+
+        .progress-bar {
+            height: 18px;
+            background: #dceee3;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #10a968;
+            border-radius: 20px;
+            transition: width 0.8s ease;
+        }
+
+        /* Recycling */
+
+        .recycling-box {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(0, 80, 40, 0.08);
+            text-align: center;
+        }
+
+        .recycling-box input {
+            width: 65%;
+            padding: 14px;
+            border: 1px solid #cde4d5;
+            border-radius: 25px;
+            outline: none;
+            margin-right: 8px;
+        }
+
+        #recyclingResult {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 15px;
+            line-height: 1.6;
+        }
+
+        /* Stats */
+
+        .stats {
+            background: #173b29;
+            color: white;
+        }
+
+        .stats-title p {
+            color: #c6ddd0;
+        }
+
+        .stats-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 15px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 22px;
+        }
+
+        .stat-card .icon {
+            font-size: 35px;
+        }
+
+        .stat-card h1 {
+            font-size: 40px;
+            margin: 10px 0;
+        }
+
+        .stat-card p {
+            color: #c6ddd0;
+        }
+
+        @media (max-width: 900px) {
+            .challenge-grid,
+            .dashboard-grid,
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .challenge-grid,
+            .dashboard-grid,
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .recycling-box input {
+                width: 90%;
+                margin: 0 0 12px;
+            }
+
+            .challenges,
+            .dashboard,
+            .recycling,
+            .stats {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- BACK HOME -->
+
+    <div class="back-button">
+        <a href="EcoConnect.html">🏠 Back to Home</a>
+    </div>
+
+
+    <!-- =========================
+         ECO CHALLENGES
+    ========================== -->
+
+    <section class="challenges" id="challenges">
+
+        <div class="challenge-heading">
+
+            <h5>ECO CHALLENGES</h5>
+
+            <h2>Small Actions. Big Change. 🌱</h2>
+
+            <p>
+                Complete simple eco-friendly activities and earn
+                Eco Points while helping protect our planet.
+            </p>
+
+        </div>
+
+
+        <div class="challenge-grid">
+
+            <div class="challenge-card">
+
+                <h3>🌳 Plant a Tree</h3>
+
+                <p>
+                    Plant one tree in your community this week.
+                </p>
+
+                <button onclick="completeChallenge(this, 50)">
+                    Complete Challenge
+                </button>
+
+            </div>
+
+
+            <div class="challenge-card">
+
+                <h3>♻️ Recycle 10 Bottles</h3>
+
+                <p>
+                    Collect and recycle ten plastic bottles.
+                </p>
+
+                <button onclick="completeChallenge(this, 30)">
+                    Complete Challenge
+                </button>
+
+            </div>
+
+
+            <div class="challenge-card">
+
+                <h3>🚲 Ride a Bicycle</h3>
+
+                <p>
+                    Replace one car trip with a bicycle ride.
+                </p>
+
+                <button onclick="completeChallenge(this, 40)">
+                    Complete Challenge
+                </button>
+
+            </div>
+
+
+            <div class="challenge-card">
+
+                <h3>💧 Save Water</h3>
+
+                <p>
+                    Reduce your shower time by 5 minutes.
+                </p>
+
+                <button onclick="completeChallenge(this, 25)">
+                    Complete Challenge
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         DASHBOARD
+    ========================== -->
+
+    <section class="dashboard" id="dashboard">
+
+        <div class="dashboard-title">
+
+            <h5>YOUR ECO DASHBOARD</h5>
+
+            <h2>Track Your Environmental Impact 🌍</h2>
+
+            <p>
+                Every eco-friendly action counts. Watch your progress
+                grow as you complete challenges.
+            </p>
+
+        </div>
+
+
+        <div class="dashboard-grid">
+
+            <div class="dashboard-card">
+
+                <h3>🏆 Eco Points</h3>
+
+                <h1 id="ecoPointsDisplay">0</h1>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>🌳 Trees Supported</h3>
+
+                <h1 id="treesDisplay">12</h1>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>♻️ Waste Recycled</h3>
+
+                <h1>148 kg</h1>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <h3>💧 Water Saved</h3>
+
+                <h1>4,250 L</h1>
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-section">
+
+            <h3>Your Eco Level 🌱</h3>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
+
+            <p id="progressText">
+                🌱 Green Explorer (0% Complete)
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RECYCLING GUIDE
+    ========================== -->
+
+    <section class="recycling" id="recycling">
+
+        <div class="recycling-title">
+
+            <h5>SMART RECYCLING GUIDE</h5>
+
+            <h2>Know What Goes Where ♻️</h2>
+
+            <p>
+                Search for a household item and discover the
+                correct way to dispose of or recycle it.
+            </p>
+
+        </div>
+
+
+        <div class="recycling-box">
+
+            <input
+                type="text"
+                id="searchItem"
+                placeholder="Example: Plastic Bottle">
+
+            <button onclick="searchRecycle()">
+                Search
+            </button>
+
+            <div id="recyclingResult"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         IMPACT STATS
+    ========================== -->
+
+    <section class="stats" id="stats">
+
+        <div class="stats-title">
+
+            <h2>Our Impact 🌍</h2>
+
+            <p>
+                Together, we're making a measurable difference
+                for our planet.
+            </p>
+
+        </div>
+
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+
+                <div class="icon">🌳</div>
+
+                <h1 class="counter" data-target="1250">
+                    0
+                </h1>
+
+                <p>Trees Planted</p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="icon">♻️</div>
+
+                <h1 class="counter" data-target="5840">
+                    0
+                </h1>
+
+                <p>Bottles Recycled</p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="icon">💧</div>
+
+                <h1 class="counter" data-target="28750">
+                    0
+                </h1>
+
+                <p>Litres of Water Saved</p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="icon">🌍</div>
+
+                <h1 class="counter" data-target="890">
+                    0
+                </h1>
+
+                <p>Eco Members</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>

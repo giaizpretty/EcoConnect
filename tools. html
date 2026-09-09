@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eco Tools | EcoConnect</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 🌱 NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="images/EcoConnect Logo.png" alt="EcoConnect Logo">
+            <span>EcoConnect</span>
+        </div>
+
+        <ul class="nav-menu">
+            <li><a href="EcoConnect.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="tools.html">Eco Tools</a></li>
+            <li><a href="challenges.html">Challenges</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- 🌍 PAGE HEADER -->
+
+    <section class="tools-hero">
+
+        <div>
+            <p class="small-title">🌱 ECOCONNECT TOOLS</p>
+
+            <h1>
+                Make Your<br>
+                Impact Count.
+            </h1>
+
+            <p>
+                Explore simple tools and challenges that can help
+                you make more sustainable choices every day.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- 🌱 ECO TOOLS -->
+
+    <section class="eco-tools">
+
+        <div class="section-heading">
+            <p>EXPLORE</p>
+            <h2>Eco Tools</h2>
+        </div>
+
+
+        <div class="tools-grid">
+
+
+            <!-- ECO CHALLENGES -->
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    🌱
+                </div>
+
+                <h3>Eco Challenges</h3>
+
+                <p>
+                    Take simple environmental challenges and
+                    build greener habits every day.
+                </p>
+
+                <a href="#challenges" class="tool-button">
+                    Start Challenge →
+                </a>
+
+            </div>
+
+
+            <!-- CARBON FOOTPRINT -->
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    🌍
+                </div>
+
+                <h3>Carbon Footprint</h3>
+
+                <p>
+                    Find out how your everyday activities
+                    affect the environment.
+                </p>
+
+                <a href="#carbon" class="tool-button">
+                    Calculate →
+                </a>
+
+            </div>
+
+
+            <!-- RECYCLING -->
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    ♻️
+                </div>
+
+                <h3>Recycling Guide</h3>
+
+                <p>
+                    Learn which everyday materials can be
+                    recycled and how to dispose of them properly.
+                </p>
+
+                <a href="#recycling" class="tool-button">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <!-- WATER -->
+
+            <div class="tool-card">
+
+                <div class="tool-icon">
+                    💧
+                </div>
+
+                <h3>Save Water</h3>
+
+                <p>
+                    Discover easy ways to reduce water waste
+                    at home and at school.
+                </p>
+
+                <a href="#water" class="tool-button">
+                    Get Tips →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 🌱 ECO CHALLENGES -->
+
+    <section class="eco-section" id="challenges">
+
+        <div class="section-heading">
+            <p>CHALLENGE YOURSELF</p>
+            <h2>🌱 Eco Challenges</h2>
+        </div>
+
+        <div class="challenge-box">
+
+            <div class="challenge">
+                <span>♻️</span>
+
+                <div>
+                    <h3>Plastic-Free Day</h3>
+                    <p>
+                        Try to avoid single-use plastics for one day.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="challenge">
+                <span>💧</span>
+
+                <div>
+                    <h3>Water Saver</h3>
+                    <p>
+                        Turn off the tap while brushing your teeth.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="challenge">
+                <span>🌳</span>
+
+                <div>
+                    <h3>Plant Something</h3>
+                    <p>
+                        Plant a tree, flower or small plant.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="challenge">
+                <span>🚶🏽‍♀️</span>
+
+                <div>
+                    <h3>Green Transport</h3>
+                    <p>
+                        Walk or cycle instead of using a car for a short trip.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 🌍 CARBON CALCULATOR -->
+
+    <section class="eco-section carbon-section" id="carbon">
+
+        <div class="section-heading">
+            <p>KNOW YOUR IMPACT</p>
+            <h2>🌍 Carbon Footprint Calculator</h2>
+        </div>
+
+
+        <div class="calculator">
+
+            <label>
+                🚗 How many kilometres do you travel by car each week?
+            </label>
+
+            <input
+                type="number"
+                id="carKm"
+                placeholder="e.g. 50"
+                min="0"
+            >
+
+
+            <label>
+                ⚡ How many kWh of electricity do you use each week?
+            </label>
+
+            <input
+                type="number"
+                id="electricity"
+                placeholder="e.g. 20"
+                min="0"
+            >
+
+
+            <label>
+                🍖 How many meat-based meals do you eat each week?
+            </label>
+
+            <input
+                type="number"
+                id="meals"
+                placeholder="e.g. 7"
+                min="0"
+            >
+
+
+            <button onclick="calculateCarbon()">
+                Calculate My Footprint 🌱
+            </button>
+
+
+            <div id="carbonResult" class="carbon-result"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ♻️ RECYCLING -->
+
+    <section class="eco-section" id="recycling">
+
+        <div class="section-heading">
+            <p>REDUCE WASTE</p>
+            <h2>♻️ Recycling Guide</h2>
+        </div>
+
+        <div class="info-grid">
+
+            <div class="info-card">
+                <span>📦</span>
+                <h3>Paper & Cardboard</h3>
+                <p>
+                    Keep paper and cardboard clean and dry before recycling.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <span>🥤</span>
+                <h3>Plastic</h3>
+                <p>
+                    Reuse plastic containers where possible and recycle
+                    accepted plastics.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <span>🍾</span>
+                <h3>Glass</h3>
+                <p>
+                    Glass bottles and jars can often be recycled.
+                    Check your local recycling facilities.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <span>🥫</span>
+                <h3>Metal</h3>
+                <p>
+                    Aluminium cans and many metal containers can be recycled.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 💧 WATER -->
+
+    <section class="eco-section" id="water">
+
+        <div class="section-heading">
+            <p>PROTECT OUR WATER</p>
+            <h2>💧 Save Water</h2>
+        </div>
+
+        <div class="water-tips">
+
+            <div>🚿 Take shorter showers.</div>
+
+            <div>🚰 Turn off taps when not in use.</div>
+
+            <div>🔧 Fix leaking taps and pipes.</div>
+
+            <div>🌧️ Collect rainwater when appropriate.</div>
+
+            <div>🪣 Reuse water when it is safe to do so.</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 🌱 FOOTER -->
+
+    <footer>
+
+        <h3>EcoConnect 🌍</h3>
+
+        <p>
+            Small actions. Big impact.
+        </p>
+
+    </footer>
+
+
+    <!-- CARBON CALCULATOR SCRIPT -->
+
+    <script>
+
+        function calculateCarbon() {
+
+            const carKm =
+                Number(document.getElementById("carKm").value) || 0;
+
+            const electricity =
+                Number(document.getElementById("electricity").value) || 0;
+
+            const meals =
+                Number(document.getElementById("meals").value) || 0;
+
+
+            /*
+            These are simplified educational estimates,
+            not an official emissions assessment.
+            */
+
+            const carEmissions = carKm * 0.21;
+
+            const electricityEmissions = electricity * 0.45;
+
+            const foodEmissions = meals * 1.5;
+
+            const total =
+                carEmissions +
+                electricityEmissions +
+                foodEmissions;
+
+
+            const result =
+                document.getElementById("carbonResult");
+
+
+            result.innerHTML = `
+                🌱 Your estimated weekly carbon footprint is
+                <strong>${total.toFixed(1)} kg CO₂e</strong>.
+                <br><br>
+                Keep making small changes to reduce your impact! 🌍💚
+            `;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,411 @@
+<<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eco Tools | EcoConnect</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tools JavaScript -->
+    <script src="tools.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🌱 EcoConnect
+        </div>
+
+        <div class="nav-links">
+            <a href="EcoConnect.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="tools.html" class="active">Tools</a>
+            <a href="challenges.html">Challenges</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="tools-hero">
+
+        <div class="tools-hero-content">
+
+            <span class="tools-badge">🌍 ECO TOOLS</span>
+
+            <h1>Make Your Impact Count.</h1>
+
+            <p>
+                Explore simple tools and challenges that help you
+                understand your environmental impact and make greener choices.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- TOOLS -->
+    <section class="eco-tools">
+
+        <div class="tools-heading">
+            <span>🌱 EXPLORE</span>
+            <h2>Tools for a Greener You</h2>
+            <p>
+                Small actions can create a big difference.
+            </p>
+        </div>
+
+
+        <div class="tools-grid">
+
+            <!-- CHALLENGES -->
+            <div class="tool-card">
+
+                <div class="tool-icon">🌱</div>
+
+                <h3>Eco Challenges</h3>
+
+                <p>
+                    Take simple environmental challenges and
+                    turn them into everyday habits.
+                </p>
+
+                <a href="#challenges" class="tool-button">
+                    Start Challenge →
+                </a>
+
+            </div>
+
+
+            <!-- CARBON -->
+            <div class="tool-card">
+
+                <div class="tool-icon">🌍</div>
+
+                <h3>Carbon Footprint</h3>
+
+                <p>
+                    Estimate your weekly carbon footprint
+                    and discover ways to reduce it.
+                </p>
+
+                <a href="#carbon" class="tool-button">
+                    Calculate →
+                </a>
+
+            </div>
+
+
+            <!-- RECYCLING -->
+            <div class="tool-card">
+
+                <div class="tool-icon">♻️</div>
+
+                <h3>Recycling Guide</h3>
+
+                <p>
+                    Learn how to properly sort and recycle
+                    common household materials.
+                </p>
+
+                <a href="#recycling" class="tool-button">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <!-- WATER -->
+            <div class="tool-card">
+
+                <div class="tool-icon">💧</div>
+
+                <h3>Save Water</h3>
+
+                <p>
+                    Discover easy ways to conserve water
+                    at home and at school.
+                </p>
+
+                <a href="#water" class="tool-button">
+                    See Tips →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ECO CHALLENGES -->
+    <section class="eco-section" id="challenges">
+
+        <div class="section-content">
+
+            <span>🌱 TAKE ACTION</span>
+
+            <h2>Eco Challenges</h2>
+
+            <p>
+                Pick a challenge and start making a difference today.
+            </p>
+
+
+            <div class="challenge-grid">
+
+                <div class="challenge-card">
+
+                    <h3>🚫 Plastic-Free Day</h3>
+
+                    <p>
+                        Try to avoid single-use plastics for one day.
+                    </p>
+
+                    <button
+                        onclick="startChallenge('Plastic-Free Day')">
+                        Start Challenge
+                    </button>
+
+                </div>
+
+
+                <div class="challenge-card">
+
+                    <h3>💧 Water Saver</h3>
+
+                    <p>
+                        Reduce your water usage throughout the day.
+                    </p>
+
+                    <button
+                        onclick="startChallenge('Water Saver')">
+                        Start Challenge
+                    </button>
+
+                </div>
+
+
+                <div class="challenge-card">
+
+                    <h3>🌳 Plant for the Planet</h3>
+
+                    <p>
+                        Plant or care for a tree or another plant.
+                    </p>
+
+                    <button
+                        onclick="startChallenge('Plant for the Planet')">
+                        Start Challenge
+                    </button>
+
+                </div>
+
+
+                <div class="challenge-card">
+
+                    <h3>💡 Energy Saver</h3>
+
+                    <p>
+                        Switch off lights and electronics when
+                        you are not using them.
+                    </p>
+
+                    <button
+                        onclick="startChallenge('Energy Saver')">
+                        Start Challenge
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CARBON CALCULATOR -->
+    <section class="eco-section carbon-section" id="carbon">
+
+        <div class="section-content">
+
+            <span>🌍 KNOW YOUR IMPACT</span>
+
+            <h2>Carbon Footprint Calculator</h2>
+
+            <p>
+                Enter your estimated weekly activities to get
+                a simple educational carbon footprint estimate.
+            </p>
+
+
+            <div class="carbon-calculator">
+
+                <label for="carKm">
+                    🚗 Car travel per week (km)
+                </label>
+
+                <input
+                    type="number"
+                    id="carKm"
+                    placeholder="e.g. 50"
+                    min="0"
+                >
+
+
+                <label for="electricity">
+                    ⚡ Electricity usage per week (kWh)
+                </label>
+
+                <input
+                    type="number"
+                    id="electricity"
+                    placeholder="e.g. 20"
+                    min="0"
+                >
+
+
+                <label for="meals">
+                    🍽️ Meals per week
+                </label>
+
+                <input
+                    type="number"
+                    id="meals"
+                    placeholder="e.g. 14"
+                    min="0"
+                >
+
+
+                <button
+                    class="calculate-button"
+                    onclick="calculateCarbon()">
+
+                    Calculate My Footprint 🌱
+
+                </button>
+
+
+                <div
+                    id="carbonResult"
+                    class="carbon-result">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RECYCLING -->
+    <section class="eco-section" id="recycling">
+
+        <div class="section-content">
+
+            <span>♻️ RECYCLE RIGHT</span>
+
+            <h2>Recycling Guide</h2>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <h3>📦 Paper & Cardboard</h3>
+                    <p>
+                        Keep paper and cardboard clean and dry
+                        before recycling them.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🥤 Plastic</h3>
+                    <p>
+                        Check local recycling rules before
+                        placing plastic items in recycling bins.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🍾 Glass</h3>
+                    <p>
+                        Separate glass containers where
+                        recycling facilities accept them.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🔋 Batteries</h3>
+                    <p>
+                        Do not place batteries in ordinary bins.
+                        Use proper collection points.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SAVE WATER -->
+    <section class="eco-section" id="water">
+
+        <div class="section-content">
+
+            <span>💧 EVERY DROP COUNTS</span>
+
+            <h2>Simple Ways to Save Water</h2>
+
+            <div class="water-tips">
+
+                <div class="info-card">
+                    <h3>🚿 Shorter Showers</h3>
+                    <p>
+                        Reduce the amount of water used while bathing.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🚰 Turn Off Taps</h3>
+                    <p>
+                        Don't leave the tap running when
+                        brushing your teeth.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🔧 Fix Leaks</h3>
+                    <p>
+                        Repair leaking taps and pipes to prevent
+                        unnecessary water loss.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            🌱 EcoConnect — Connecting People with a Greener Future.
+        </p>
+
+    </footer>
+
+</body>
+</html>
